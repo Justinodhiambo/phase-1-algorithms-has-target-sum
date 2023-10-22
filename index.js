@@ -1,5 +1,13 @@
-function hasTargetSum(array, target) {
-  // Write your algorithm here
+function hasTargetSum(arr, target) {
+  const seen = new Set();
+  for (const num of arr) {
+    const difference = target - num;
+    if (seen.has(difference)) {
+      return true;
+    }
+    seen.add(num);
+  }
+  return false;
 }
 
 /* 
@@ -7,11 +15,15 @@ function hasTargetSum(array, target) {
 */
 
 /* 
-  Add your pseudocode here
-*/
+Initialize an empty set to store seen numbers.
+For each number in the array:
+Calculate the difference between the target and the current number.
+Check if the difference is in the set of seen numbers. If it is, return true.
+Otherwise, add the current number to the set of seen numbers.
+If the loop completes without finding a pair, return false.*/
 
 /*
-  Add written explanation of your solution here
+  The hasTargetSum function is designed to determine if there exists a pair of numbers in the input array that adds up to a given target value.
 */
 
 // You can run `node index.js` to view these console logs
